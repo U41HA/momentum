@@ -17,8 +17,22 @@
         <button class="play player-icon"></button>
         <button class="play-next player-icon"></button>
       </div>
+      <span class="song-timing">00:00</span>
+      <div class="song-time">
+        <div class="song-time duration"></div>
+      </div>
+      <div class="volume-container">
+        <input type="range" class="volume" min="0" max="100">
+        <div class="mute"></div>
+      </div>
       <ul class="play-list">
       </ul>
+    </div>
+    <div class="todo">
+      <input type="text" class="todo-input" placeholder="Todo list">
+        <ul class="todo-list">
+        </ul>
+      </input>
     </div>
     <div class="weather">
       <input type="text" class="city"/>
@@ -56,6 +70,6 @@
     </div>
   </footer>
 
-  <script src="script/index.js"></script>
+  <script src="script/index.js" type="module"></script>
 </body>
 </html>

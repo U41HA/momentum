@@ -59,9 +59,13 @@ resizeInput();
 
 
 // Local storage
+
 function setLocalStorage() {
     localStorage.setItem('name', userName.value);
     localStorage.setItem('city', city.value);
+
+    let todoListSaved = document.querySelector('.todo-list').innerHTML;
+    localStorage.setItem(`todoListSaved`, todoListSaved);
 }
 
 function getLocalStorage() {
@@ -70,6 +74,9 @@ function getLocalStorage() {
     }
     if (localStorage.city) {
         city.value = localStorage.getItem('city');
+    }
+    if (localStorage.todoListSaved) {
+        todoList.innerHTML = localStorage.getItem('todoListSaved')
     }
 }
 
@@ -135,7 +142,7 @@ async function getWeather() {
     let url;
     if (city.value) {
         url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=a01750483a59217da99600a7e6738336&units=metric`
-    } else { 
+    } else {
         url = `https://api.openweathermap.org/data/2.5/weather?q=Tyumen&lang=en&appid=a01750483a59217da99600a7e6738336&units=metric`;
     }
     const res = await fetch(url);
@@ -149,6 +156,183 @@ async function getWeather() {
     humidity.textContent = `Humidity: ${Math.ceil(data.main.humidity)}%`;
 }
 
-
 window.addEventListener('load', getWeather);
 city.addEventListener('change', getWeather);
+
+// Quotes
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuoteButton = document.querySelector('.change-quote');
+
+function getRandomQuotesNum() {
+    return Math.floor(Math.random() * 100 + 1)
+}
+
+async function getQuotes() {
+    const quotes = `./script/data.json`;
+    const res = await fetch(quotes);
+    const data = await res.json();
+
+    let randomQuotesNum = getRandomQuotesNum();
+    quote.textContent = data[randomQuotesNum].text;
+    author.textContent = data[randomQuotesNum].author;
+}
+
+window.addEventListener('load', getQuotes);
+changeQuoteButton.addEventListener('click', getQuotes);
+
+// Audio player
+// Add song and song list on page
+const playList = document.querySelector('.play-list');
+const songList = [
+    {
+        title: 'Aqua Caelestis',
+        src: 'assets/sounds/Aqua Caelestis.mp3',
+        duration: '00:39',
+    },
+
+    {
+        title: 'River Flows In You',
+        src: 'assets/sounds/River Flows In You.mp3',
+        duration: '01:37',
+    },
+
+    {
+        title: 'Ennio Morricone',
+        src: 'assets/sounds/Ennio Morricone.mp3',
+        duration: '01:37',
+    },
+
+    {
+        title: 'Summer Wind',
+        src: 'assets/sounds/Summer Wind.mp3',
+        duration: '01:50',
+    }
+]
+
+for (let i = 0; i < songList.length; i++) {
+    const li = document.createElement('li');
+    li.className = 'play-item';
+    li.textContent = songList[i].title;
+    playList.append(li);
+}
+
+// Add audio player
+let isPlay = false;
+const playButton = document.querySelector('.play');
+const playNextButton = document.querySelector('.play-next');
+const playPrevButton = document.querySelector('.play-prev');
+const songs = document.querySelectorAll('.play-item');
+const songDuration = document.querySelector('.song-time.duration');
+const songTiming = document.querySelector('.song-timing');
+const volume = document.querySelector('.volume');
+const mute = document.querySelector('.mute');
+
+const audio = new Audio();
+let i = 0;
+
+
+function playAudio() {
+    audio.src = `${songList[i].src}`;
+    if (!songs[i].classList.contains('item-active')) {
+        songs[i].classList.add('item-active');
+    }
+    if (!isPlay) {
+        audio.play();
+        playButton.classList.toggle('pause');
+        isPlay = true;
+    } else {
+        audio.pause();
+        playButton.classList.toggle('pause');
+        isPlay = false;
+    }
+    // Autoplay next song
+    function isEnded() {
+        if (audio.ended) {
+            nextAudio();
+        }
+        setTimeout(isEnded, 1000);
+    }
+    isEnded();
+
+    // Duration of song
+    function slideSongDuration() {
+        let duration = audio.currentTime / audio.duration * 100;
+        songDuration.style.width = `${duration}%`;
+        let minutes = String(Math.floor(audio.currentTime / 60)).padStart(2, '0');
+        let seconds = String(Math.floor(audio.currentTime % 60)).padStart(2, '0');
+        songTiming.textContent = `${minutes}:${seconds}`;
+        setTimeout(slideSongDuration, 1000);
+    }
+    slideSongDuration();
+
+    // volume
+    function changeVolume() {
+        audio.volume = volume.value / 100;
+    }
+    volume.addEventListener('change', changeVolume);
+
+    // mute
+    function muteSong() {
+        mute.classList.toggle('active');
+        if (!audio.muted) {
+            audio.muted = true;
+        } else {
+            audio.muted = false;
+        }
+    }
+    mute.addEventListener('click', muteSong);
+}
+
+
+function nextAudio() {
+    if (i !== songs.length - 1) {
+        i++;
+        songs[i - 1].classList.remove('item-active');
+    } else {
+        i = 0;
+        songs[songs.length - 1].classList.remove('item-active');
+    };
+    playAudio();
+    playAudio();
+}
+
+function prevAudio() {
+    if (i !== 0) {
+        i--;
+        songs[i + 1].classList.remove('item-active');
+    } else {
+        i = songs.length - 1;
+        songs[0].classList.remove('item-active');
+    };
+    playAudio();
+    playAudio();
+}
+
+playButton.addEventListener('click', playAudio);
+playNextButton.addEventListener('click', nextAudio);
+playPrevButton.addEventListener('click', prevAudio);
+
+// Todo list
+const todoList = document.querySelector('.todo-list');
+const todoInput = document.querySelector('.todo-input');
+
+function createTodoItem() {
+    if (todoInput.value) {
+        const li = document.createElement('li');
+        li.className = 'todo-item';
+        li.textContent = todoInput.value;
+        todoList.append(li);
+        todoInput.value = ''
+    }
+}
+
+function markDoneItem(e){
+    if (e.target.classList.contains('done')) {
+        todoList.removeChild(e.target);
+    };
+    e.target.classList.add('done');
+}
+
+todoInput.addEventListener('change', createTodoItem);
+todoList.addEventListener('click', markDoneItem);
