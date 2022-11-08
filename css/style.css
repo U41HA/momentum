@@ -219,7 +219,6 @@ body {
   position: relative;
   padding: 5px 20px;
   list-style: none;
-  opacity: .8;
   cursor: pointer;
   transition: .3s;
   text-align: left;
@@ -228,6 +227,7 @@ body {
 
 .todo-item.done {
   text-decoration: line-through;
+  opacity: 0.6;
 }
 
 .todo-item::after {
