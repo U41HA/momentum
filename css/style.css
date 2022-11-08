@@ -10,6 +10,16 @@
   padding: 0;
 }
 
+::-webkit-scrollbar {
+  background-color: transparent;
+  width: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #C5B358;
+  height: 20px;
+}
+
 body {
   min-width: 480px;
   min-height: 100vh;
@@ -177,6 +187,11 @@ body {
   transition: .2s;
 }
 
+.todo {
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
 .todo-input {
   width: 170px;
   height: 34px;
@@ -196,6 +211,9 @@ body {
   opacity: 0.6;
 }
 
+.todo-list {
+  max-height: 100%;
+}
 
 .todo-item {
   position: relative;
