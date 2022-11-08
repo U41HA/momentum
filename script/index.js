@@ -141,19 +141,19 @@ const humidity = document.querySelector('.humidity');
 async function getWeather() {
     let url;
     if (city.value) {
-        url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=a01750483a59217da99600a7e6738336&units=metric`
+        url = `http://api.openweathermap.org/data/2.5/find?q=${city.value}&lang=en&type=like&APPID=852e5c9d2d3f9c7c5e63661fb0b4c96f&units=metric`
     } else {
-        url = `https://api.openweathermap.org/data/2.5/weather?q=Tyumen&lang=en&appid=a01750483a59217da99600a7e6738336&units=metric`;
+        url = `http://api.openweathermap.org/data/2.5/find?q=Tyumen&lang=en&type=like&APPID=852e5c9d2d3f9c7c5e63661fb0b4c96f&units=metric`;
     }
     const res = await fetch(url);
     const data = await res.json();
 
     weatherIcon.className = 'weather-icon owf';
-    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-    temperature.textContent = `${Math.floor(data.main.temp)}°C`;
-    weatherDescription.textContent = `${data.weather[0].description}`;
-    wind.textContent = `Wind speed: ${Math.ceil(data.wind.speed)} m/s`;
-    humidity.textContent = `Humidity: ${Math.ceil(data.main.humidity)}%`;
+    weatherIcon.classList.add(`owf-${data.list[0].weather[0].id}`);
+    temperature.textContent = `${Math.floor(data.list[0].main.temp)}°C`;
+    weatherDescription.textContent = `${data.list[0].weather[0].description}`;
+    wind.textContent = `Wind speed: ${Math.ceil(data.list[0].wind.speed)} m/s`;
+    humidity.textContent = `Humidity: ${Math.ceil(data.list[0].main.humidity)}%`;
 }
 
 window.addEventListener('load', getWeather);
