@@ -233,7 +233,7 @@ body {
 .todo-item::after {
   content: '\00D7';
   position: absolute;
-  right: 0px;
+  right: 3px;
 }
 
 .todo-item::before {
