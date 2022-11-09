@@ -318,6 +318,11 @@ body {
   cursor: pointer;
 }
 
+.slider-icon.inactive {
+  cursor: auto;
+  opacity: 0.5;
+}
+
 .slide-prev {
   left: 20px;
   background-image: url("../assets/svg/slider-prev.svg");

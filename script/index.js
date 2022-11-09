@@ -127,6 +127,24 @@ setBg();
 nextButton.addEventListener('click', getSlideNext);
 prevButton.addEventListener('click', getSlidePrev);
 
+document.body.addEventListener('transitionstart', function (event) {
+    if (event.target == document.body) {
+        nextButton.classList.add('inactive');
+        prevButton.classList.add('inactive');
+        nextButton.removeEventListener('click', getSlideNext);
+        prevButton.removeEventListener('click', getSlidePrev);
+    }
+});
+document.body.addEventListener('transitionend', function (event) {
+    if (event.target == document.body) {
+        nextButton.classList.remove('inactive');
+        prevButton.classList.remove('inactive');
+        nextButton.addEventListener('click', getSlideNext);
+        prevButton.addEventListener('click', getSlidePrev);
+    }
+});
+
+
 // Weather 
 
 const weatherIcon = document.querySelector('.weather-icon');
@@ -433,7 +451,7 @@ function createTodoItem() {
     }
 }
 
-function markDoneItem(e){
+function markDoneItem(e) {
     if (e.target.classList.contains('done')) {
         todoList.removeChild(e.target);
     };
