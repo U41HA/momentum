@@ -124,25 +124,34 @@ function setBg() {
 }
 setBg();
 
-nextButton.addEventListener('click', getSlideNext);
-prevButton.addEventListener('click', getSlidePrev);
+function bodyListener() {
+    document.body.addEventListener('transitionend', function (event) {
+        if (event.target == document.body) {
+            nextButton.classList.remove('inactive');
+            prevButton.classList.remove('inactive');
+            nextButton.addEventListener('click', getSlideNext);
+            prevButton.addEventListener('click', getSlidePrev);
+        }
+    });
 
-document.body.addEventListener('transitionstart', function (event) {
-    if (event.target == document.body) {
-        nextButton.classList.add('inactive');
-        prevButton.classList.add('inactive');
-        nextButton.removeEventListener('click', getSlideNext);
-        prevButton.removeEventListener('click', getSlidePrev);
-    }
-});
-document.body.addEventListener('transitionend', function (event) {
-    if (event.target == document.body) {
-        nextButton.classList.remove('inactive');
-        prevButton.classList.remove('inactive');
-        nextButton.addEventListener('click', getSlideNext);
-        prevButton.addEventListener('click', getSlidePrev);
-    }
-});
+    document.body.addEventListener('transitionstart', function (event) {
+        if (event.target == document.body) {
+            nextButton.removeEventListener('click', getSlideNext);
+            prevButton.removeEventListener('click', getSlidePrev);
+            nextButton.classList.add('inactive');
+            prevButton.classList.add('inactive');
+
+        }
+    });
+    nextButton.addEventListener('click', getSlideNext);
+    prevButton.addEventListener('click', getSlidePrev);
+}
+
+window.addEventListener('load', bodyListener);
+
+
+
+
 
 
 // Weather 
