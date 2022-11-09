@@ -192,7 +192,6 @@ body {
 
 .todo {
   max-height: 100%;
-  overflow-y: scroll;
 }
 
 .todo-input {
@@ -215,7 +214,8 @@ body {
 }
 
 .todo-list {
-  max-height: 100%;
+  max-height: 140px;
+  overflow-y: scroll;
 }
 
 .todo-item {
