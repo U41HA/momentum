@@ -53,6 +53,8 @@ body {
 
 .play-list {
   text-align: left;
+  max-height: 200px;
+  overflow-y: scroll;
 }
 
 .play-item {

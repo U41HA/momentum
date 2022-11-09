@@ -186,28 +186,134 @@ changeQuoteButton.addEventListener('click', getQuotes);
 const playList = document.querySelector('.play-list');
 const songList = [
     {
-        title: 'Aqua Caelestis',
-        src: 'assets/sounds/Aqua Caelestis.mp3',
-        duration: '00:39',
+        title: 'Chill Beats De Rap',
+        src: 'assets/sounds/Chill Beats De Rap.mp3',
     },
 
     {
-        title: 'River Flows In You',
-        src: 'assets/sounds/River Flows In You.mp3',
-        duration: '01:37',
+        title: 'Chilled Milk',
+        src: 'assets/sounds/Chilled Milk.mp3',
     },
 
     {
-        title: 'Ennio Morricone',
-        src: 'assets/sounds/Ennio Morricone.mp3',
-        duration: '01:37',
+        title: 'Chill Hop',
+        src: 'assets/sounds/Chill Hop.mp3',
     },
 
     {
-        title: 'Summer Wind',
-        src: 'assets/sounds/Summer Wind.mp3',
-        duration: '01:50',
-    }
+        title: 'Emotional Lofi Beat',
+        src: 'assets/sounds/Emotional Lofi Beat.mp3',
+    },
+
+    {
+        title: 'Lofi Relaxation',
+        src: 'assets/sounds/Lofi Relaxation.mp3',
+    },
+
+    {
+        title: 'Lofi Study Girl',
+        src: 'assets/sounds/Lofi Study Girl.mp3',
+    },
+
+    {
+        title: 'Sleep Chill',
+        src: 'assets/sounds/Sleep Chill.mp3',
+    },
+
+    {
+        title: 'Study Chillhop',
+        src: 'assets/sounds/Study Chillhop.mp3',
+    },
+
+    {
+        title: 'Survival Unit',
+        src: 'assets/sounds/Survival Unit.mp3',
+    },
+
+    {
+        title: 'Time to Go',
+        src: 'assets/sounds/Time to Go.mp3',
+    },
+
+    {
+        title: 'Jazzy',
+        src: 'assets/sounds/Jazzy.mp3',
+    },
+
+    {
+        title: 'No Added Sugar',
+        src: 'assets/sounds/No Added Sugar.mp3',
+    },
+
+    {
+        title: 'Mellow Lofi',
+        src: 'assets/sounds/Mellow Lofi.mp3',
+    },
+
+    {
+        title: 'Intermittent Fasting',
+        src: 'assets/sounds/Intermittent Fasting.mp3',
+    },
+
+    {
+        title: 'Veganuary',
+        src: 'assets/sounds/Veganuary.mp3',
+    },
+
+    {
+        title: 'Beats of Hope',
+        src: 'assets/sounds/Beats of Hope.mp3',
+    },
+
+    {
+        title: 'Beautiful and Mellow',
+        src: 'assets/sounds/Beautiful and Mellow.mp3',
+    },
+
+    {
+        title: 'Strange Feelings',
+        src: 'assets/sounds/Strange Feelings.mp3',
+    },
+
+    {
+        title: 'Bounce',
+        src: 'assets/sounds/Bounce.mp3',
+    },
+
+    {
+        title: 'Erase My Memory',
+        src: 'assets/sounds/Erase My Memory.mp3',
+    },
+
+    {
+        title: 'Welcome to the Sun',
+        src: 'assets/sounds/Welcome to the Sun.mp3',
+    },
+
+    {
+        title: 'Hazy Guitars',
+        src: 'assets/sounds/Hazy Guitars.mp3',
+    },
+
+    {
+        title: 'Endorphins Released',
+        src: 'assets/sounds/Endorphins Released.mp3',
+    },
+
+    {
+        title: 'Ketones',
+        src: 'assets/sounds/Ketones.mp3',
+    },
+
+    {
+        title: 'Rhodes Lofi',
+        src: 'assets/sounds/Rhodes Lofi.mp3',
+    },
+
+    {
+        title: 'Thoughtful Lofi Beat',
+        src: 'assets/sounds/Thoughtful Lofi Beat.mp3',
+    },
 ]
 
 for (let i = 0; i < songList.length; i++) {
