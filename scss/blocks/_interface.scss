@@ -9,10 +9,7 @@
     width: 2px;
 
     &-thumb {
-        background-color: #C5B358;
+        background-color: $elementsColor;
         height: 20px;
     }
 }
-
-// Variables
-$elementsColor: #C5B358;

@@ -4,6 +4,9 @@
 // owf-icon settings
 @import 'owf-font';
 
+// Variables
+@import 'variables';
+
 // Interface settings
 @import './blocks/interface';
 
@@ -40,3 +43,4 @@
         padding: 5px;
     }
 }
+

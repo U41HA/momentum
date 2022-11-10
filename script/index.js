@@ -134,8 +134,8 @@ function bodyListener() {
         }
     });
 
-    document.body.addEventListener('transitionstart', function (event) {
-        if (event.target == document.body) {
+    document.body.addEventListener('click', function (event) {
+        if (event.target == nextButton || event.target == prevButton) {
             nextButton.removeEventListener('click', getSlideNext);
             prevButton.removeEventListener('click', getSlidePrev);
             nextButton.classList.add('inactive');
