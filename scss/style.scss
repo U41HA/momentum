@@ -1,0 +1,42 @@
+// Fonts settings
+@import 'font';
+
+// owf-icon settings
+@import 'owf-font';
+
+// Interface settings
+@import './blocks/interface';
+
+// Background settings
+@import './blocks/background';
+
+// Header and element settings
+@import './blocks/header';
+
+// Main and element settings
+@import './blocks/main';
+
+// Footer and element settings
+@import './blocks/footer';
+
+
+@media (max-width: 768px) {
+    .time {
+        min-height: 80px;
+        font-size: 72px;
+    }
+
+    .greeting {
+        padding: 5px;
+
+        &-container {
+            min-height: 40px;
+            font-size: 32px;
+        }
+    }
+
+    .name {
+        font-size: 32px;
+        padding: 5px;
+    }
+}

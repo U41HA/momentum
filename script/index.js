@@ -210,7 +210,7 @@ changeQuoteButton.addEventListener('click', getQuotes);
 
 // Audio player
 // Add song and song list on page
-const playList = document.querySelector('.play-list');
+const playList = document.querySelector('.playlist-list');
 const songList = [
     {
         title: 'Chill Beats De Rap',
@@ -345,7 +345,7 @@ const songList = [
 
 for (let i = 0; i < songList.length; i++) {
     const li = document.createElement('li');
-    li.className = 'play-item';
+    li.className = 'playlist-item';
     li.textContent = songList[i].title;
     playList.append(li);
 }
@@ -355,7 +355,7 @@ let isPlay = false;
 const playButton = document.querySelector('.play');
 const playNextButton = document.querySelector('.play-next');
 const playPrevButton = document.querySelector('.play-prev');
-const songs = document.querySelectorAll('.play-item');
+const songs = document.querySelectorAll('.playlist-item');
 const songDuration = document.querySelector('.song-time.duration');
 const songTiming = document.querySelector('.song-timing');
 const volume = document.querySelector('.volume');

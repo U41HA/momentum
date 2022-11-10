@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: 2px;
+
+    &-thumb {
+        background-color: #C5B358;
+        height: 20px;
+    }
+}
+
+// Variables
+$elementsColor: #C5B358;
