@@ -140,7 +140,6 @@ function bodyListener() {
             prevButton.removeEventListener('click', getSlidePrev);
             nextButton.classList.add('inactive');
             prevButton.classList.add('inactive');
-
         }
     });
     nextButton.addEventListener('click', getSlideNext);
@@ -196,7 +195,7 @@ function getRandomQuotesNum() {
 }
 
 async function getQuotes() {
-    const quotes = `./script/data.json`;
+    const quotes = `./script/quotes.json`;
     const res = await fetch(quotes);
     const data = await res.json();
 
