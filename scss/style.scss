@@ -21,26 +21,3 @@
 
 // Footer and element settings
 @import './blocks/footer';
-
-
-@media (max-width: 768px) {
-    .time {
-        min-height: 80px;
-        font-size: 72px;
-    }
-
-    .greeting {
-        padding: 5px;
-
-        &-container {
-            min-height: 40px;
-            font-size: 32px;
-        }
-    }
-
-    .name {
-        font-size: 32px;
-        padding: 5px;
-    }
-}
-

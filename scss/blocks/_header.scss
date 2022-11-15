@@ -163,13 +163,13 @@
 .todo {
     max-height: 100%;
 
-    &-input {
+    &-input-education, &-input-live {
         width: 170px;
         height: 34px;
         padding: 5px;
         margin-bottom: 10px;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 16px;
+        line-height: 20px;
         color: #fff;
         border: 0;
         outline: 0;

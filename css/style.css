@@ -811,28 +811,28 @@ body {
 .todo {
   max-height: 100%;
 }
-.todo-input {
+.todo-input-education, .todo-input-live {
   width: 170px;
   height: 34px;
   padding: 5px;
   margin-bottom: 10px;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 20px;
   color: #fff;
   border: 0;
   outline: 0;
   border-bottom: 1px solid #C5B358;
   background-color: transparent;
 }
-.todo-input::-moz-placeholder {
+.todo-input-education::-moz-placeholder, .todo-input-live::-moz-placeholder {
   color: #fff;
   opacity: 0.6;
 }
-.todo-input:-ms-input-placeholder {
+.todo-input-education:-ms-input-placeholder, .todo-input-live:-ms-input-placeholder {
   color: #fff;
   opacity: 0.6;
 }
-.todo-input::placeholder {
+.todo-input-education::placeholder, .todo-input-live::placeholder {
   color: #fff;
   opacity: 0.6;
 }
@@ -1015,6 +1015,23 @@ body {
   opacity: 0.6;
 }
 
+@media (max-width: 768px) {
+  .time {
+    min-height: 80px;
+    font-size: 72px;
+  }
+  .greeting {
+    padding: 5px;
+  }
+  .greeting-container {
+    min-height: 40px;
+    font-size: 32px;
+  }
+  .name {
+    font-size: 32px;
+    padding: 5px;
+  }
+}
 .footer {
   display: flex;
   flex-direction: column;
@@ -1037,22 +1054,4 @@ body {
 
 .author {
   min-height: 20px;
-}
-
-@media (max-width: 768px) {
-  .time {
-    min-height: 80px;
-    font-size: 72px;
-  }
-  .greeting {
-    padding: 5px;
-  }
-  .greeting-container {
-    min-height: 40px;
-    font-size: 32px;
-  }
-  .name {
-    font-size: 32px;
-    padding: 5px;
-  }
 }/*# sourceMappingURL=style.css.map */

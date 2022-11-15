@@ -64,8 +64,11 @@ function setLocalStorage() {
     localStorage.setItem('name', userName.value);
     localStorage.setItem('city', city.value);
 
-    let todoListSaved = document.querySelector('.todo-list').innerHTML;
-    localStorage.setItem(`todoListSaved`, todoListSaved);
+    let educationTodoListSaved = document.querySelector('.todo-list-education').innerHTML;
+    localStorage.setItem(`educationTodoListSaved`, educationTodoListSaved);
+
+    let liveTodoListSaved = document.querySelector('.todo-list-live').innerHTML;
+    localStorage.setItem(`liveTodoListSaved`, liveTodoListSaved);
 }
 
 function getLocalStorage() {
@@ -75,8 +78,11 @@ function getLocalStorage() {
     if (localStorage.city) {
         city.value = localStorage.getItem('city');
     }
-    if (localStorage.todoListSaved) {
-        todoList.innerHTML = localStorage.getItem('todoListSaved')
+    if (localStorage.educationTodoListSaved) {
+        educationTodoList.innerHTML = localStorage.getItem('educationTodoListSaved')
+    }
+    if (localStorage.liveTodoListSaved) {
+        liveTodoList.innerHTML = localStorage.getItem('liveTodoListSaved')
     }
 }
 
@@ -446,25 +452,46 @@ playNextButton.addEventListener('click', nextAudio);
 playPrevButton.addEventListener('click', prevAudio);
 
 // Todo list
-const todoList = document.querySelector('.todo-list');
-const todoInput = document.querySelector('.todo-input');
+const educationTodoList = document.querySelector('.todo-list-education');
+const liveTodoList = document.querySelector('.todo-list-live');
+const educationTodoInput = document.querySelector('.todo-input-education');
+const liveTodoInput = document.querySelector('.todo-input-live');
 
-function createTodoItem() {
-    if (todoInput.value) {
+function createEducationTodoItem() {
+    if (educationTodoInput.value) {
         const li = document.createElement('li');
         li.className = 'todo-item';
-        li.textContent = todoInput.value;
-        todoList.append(li);
-        todoInput.value = ''
+        li.textContent = educationTodoInput.value;
+        educationTodoList.append(li);
+        educationTodoInput.value = ''
     }
 }
 
-function markDoneItem(e) {
+function createLiveTodoItem() {
+    if (liveTodoInput.value) {
+        const li = document.createElement('li');
+        li.className = 'todo-item';
+        li.textContent = liveTodoInput.value;
+        liveTodoList.append(li);
+        liveTodoInput.value = ''
+    }
+}
+
+function markDoneItemEducation(e) {
     if (e.target.classList.contains('done')) {
-        todoList.removeChild(e.target);
+        educationTodoList.removeChild(e.target);
     };
     e.target.classList.add('done');
 }
 
-todoInput.addEventListener('change', createTodoItem);
-todoList.addEventListener('click', markDoneItem);
+function markDoneItemLive(e) {
+    if (e.target.classList.contains('done')) {
+        liveTodoList.removeChild(e.target);
+    };
+    e.target.classList.add('done');
+}
+
+educationTodoInput.addEventListener('change', createEducationTodoItem);
+liveTodoInput.addEventListener('change', createLiveTodoItem);
+educationTodoList.addEventListener('click', markDoneItemEducation);
+liveTodoList.addEventListener('click', markDoneItemLive);
