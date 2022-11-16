@@ -254,8 +254,8 @@
     width: 170px;
     height: 34px;
     padding: 5px;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 20px;
     color: #fff;
     border: 0;
     outline: 0;
@@ -263,7 +263,7 @@
     background-color: transparent;
 
     &::placeholder {
-        font-size: 20px;
+        font-size: 16px;
         color: #fff;
         opacity: .6;
     }
