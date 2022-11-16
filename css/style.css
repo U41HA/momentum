@@ -684,6 +684,11 @@ body {
   max-height: 150px;
   overflow-y: scroll;
 }
+@media (max-width: 768px) {
+  .playlist-list {
+    max-height: 110px;
+  }
+}
 .playlist-item {
   position: relative;
   padding: 5px;

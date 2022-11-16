@@ -21,6 +21,12 @@
         text-align: left;
         max-height: 150px;
         overflow-y: scroll;
+
+        @media (max-width: 768px) {
+            & {
+                max-height: 110px;
+            }
+        }
     }
 
     &-item {
@@ -163,7 +169,8 @@
 .todo {
     max-height: 100%;
 
-    &-input-education, &-input-live {
+    &-input-education,
+    &-input-live {
         width: 170px;
         height: 34px;
         padding: 5px;
