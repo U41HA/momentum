@@ -172,6 +172,7 @@ const humidity = document.querySelector('.humidity');
 
 async function getWeather() {
     let url;
+    let data;
     try {
         if (city.value) {
             url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=en&appid=852e5c9d2d3f9c7c5e63661fb0b4c96f&units=metric`
@@ -179,7 +180,7 @@ async function getWeather() {
             url = `https://api.openweathermap.org/data/2.5/weather?q=Tyumen&lang=en&appid=852e5c9d2d3f9c7c5e63661fb0b4c96f&units=metric`;
         }
         const res = await fetch(url);
-        const data = await res.json();
+        data = await res.json();
     } catch (e) {
         if (city.value) {
             alert(`Impossible to find your city: ${city.value}, or server is not available \nError description: ${e.message}`);
